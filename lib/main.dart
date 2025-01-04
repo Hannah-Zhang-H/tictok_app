@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tictok_app/constants.dart';
 import 'package:tictok_app/views/screens/auth/login_screen.dart';
+import 'package:tictok_app/views/screens/auth/signup_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,6 +18,6 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: backgroundColor,
         ),
         debugShowCheckedModeBanner: false,
-        home: LoginScreen());
+        home: SignupScreen());
   }
 }

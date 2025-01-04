@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:tictok_app/constants.dart';
 import 'package:tictok_app/views/widgets/text_input_field.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class SignupScreen extends StatelessWidget {
+  SignupScreen({super.key});
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _userNameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +25,43 @@ class LoginScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               const Text(
-                'Login',
+                'Register',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
               ),
               const SizedBox(
                 height: 25,
+              ),
+
+              // !Stack的用法：
+              Stack(children: [
+                const CircleAvatar(
+                  radius: 64,
+                  backgroundImage: AssetImage('assets/images/avatar0.png'),
+                  backgroundColor: Colors.grey,
+                ),
+                Positioned(
+                    bottom: 0,
+                    left: 100,
+                    child: IconButton(
+                      icon: const Icon(Icons.add_a_photo),
+                      onPressed: () {
+                        debugPrint('upload a photo');
+                      },
+                    ))
+              ]),
+              const SizedBox(
+                height: 20,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 50),
+                child: TextInputField(
+                  icon: Icons.person,
+                  hintText: 'Username',
+                  controller: _userNameController,
+                ),
+              ),
+              const SizedBox(
+                height: 10,
               ),
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 50),
@@ -74,13 +107,13 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Don\'t have an account?',
+                    'Aleady have an account?',
                     style: TextStyle(fontSize: 18),
                   ),
                   TextButton(
                     onPressed: () {},
                     child: Text(
-                      'Register',
+                      'Login',
                       style: TextStyle(color: buttonColor, fontSize: 18),
                     ),
                   )
